@@ -30,4 +30,10 @@ const LoginContainer = styled.div`
 
 const LoginContent = styled.div``;
 
-const LoginBox = styled.div``;
+const LoginBox = styled.div`
+  h2 {
+    font-family: "Fugaz One", cursive;
+    font-size: 40px;
+    font-weight: bold;
+  }
+`;

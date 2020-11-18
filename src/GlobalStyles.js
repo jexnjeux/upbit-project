@@ -1,12 +1,15 @@
-import { createGlobalStyle, css } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle, css } from "styled-components";
+import reset from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
   ${reset};
   
+  @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
   * {
   box-sizing: border-box;
+  
+
   }
   a {
   text-decoration: none;
@@ -44,8 +47,8 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const theme = {
-  themeLightBlue: '#115DCB',
-  themeDarkBlue: '#093687',
+  themeLightBlue: "#115DCB",
+  themeDarkBlue: "#093687",
   flex: (justify = null, align = null, direction = null) => css`
     display: flex;
     justify-content: ${justify};
