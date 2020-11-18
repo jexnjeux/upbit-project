@@ -139,7 +139,7 @@ const SignUpText = styled.p`
   line-height: 22px;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.img`
   display: block;
   margin: 0 auto;
   margin-top: 32px;
