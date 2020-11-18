@@ -19,7 +19,9 @@ function Nav() {
   return (
     <Fragment>
       <WrapNav>
-        <LogoImg src="Images/Wecoin_white.png" />
+        <Link to="/">
+          <LogoImg src="Images/Wecoin_white.png" />
+        </Link>
         <WrapCategories>
           {CATEGORIES.map((el, index) => {
             return (
@@ -29,7 +31,7 @@ function Nav() {
                 clickIndex={categoryCurrent}
                 onClick={() => handleCategoryCurrentChange(index)}
               >
-                {el.category}
+                <Link to={el.url}>{el.category}</Link>
               </Category>
             );
           })}
@@ -130,7 +132,7 @@ const CATEGORIES = [
   {
     id: 1,
     category: "거래소",
-    url: "/Exchange",
+    url: "/",
   },
   {
     id: 2,
