@@ -22,7 +22,6 @@ function SignIn() {
             if (res.status === 200) {
               localStorage.setItem("token", res.data.Authorization);
               history.push("/");
-              // console.log(res);
             }
           });
       } catch (err) {
