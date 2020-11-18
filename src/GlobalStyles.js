@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export const theme = {
   themeLightBlue: "#115DCB",
-  themeDarkBlue: "#093687",
+  themeDarkBlue: "#0D498B",
   flex: (justify = null, align = null, direction = null) => css`
     display: flex;
     justify-content: ${justify};
