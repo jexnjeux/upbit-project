@@ -33,7 +33,7 @@ function SignUp() {
     <SignUpWrap>
       <SignUpContainer>
         <SignUpContent>
-          <Logo>WEcoin</Logo>
+          <Logo src="Images/wecoin_blue.svg" />
           <SignUpText>
             방문하신 사이트의 주소가 일치하는지 확인해주세요.
           </SignUpText>
@@ -140,11 +140,11 @@ const SignUpText = styled.p`
 `;
 
 const Logo = styled.h1`
+  display: block;
+  margin: 0 auto;
   margin-top: 32px;
   margin-bottom: 24px;
-  font-family: "Fugaz One", cursive !important;
-  text-align: center;
-  font-size: 48px;
+  width: 124px;
 `;
 
 const Form = styled.form`
@@ -188,7 +188,7 @@ const ErrorMsg = styled.p`
 
 const SubmitButton = styled.button`
   display: block;
-  padding: 6px 12px;
+  padding: 8px 12px;
   margin-top: 16px;
   margin-bottom: 24px;
   font-size: 14px;

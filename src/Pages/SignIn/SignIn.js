@@ -22,7 +22,6 @@ function SignIn() {
             if (res.status === 200) {
               localStorage.setItem("token", res.data.Authorization);
               history.push("/");
-              // console.log(res);
             }
           });
       } catch (err) {
@@ -35,7 +34,7 @@ function SignIn() {
     <SignInWrap>
       <LoginContainer>
         <LoginContent>
-          <Logo>WEcoin</Logo>
+          <Logo src="Images/wecoin_blue.svg" />
           <LoginText>
             방문하신 사이트의 주소가 일치하는지 확인해주세요.
           </LoginText>
@@ -97,6 +96,7 @@ const SignInWrap = styled.div`
 
 const LoginContainer = styled.div`
   margin: 0 auto;
+  margin-top: 64px;
   width: 532px;
   background-color: #fff;
 `;
@@ -111,12 +111,12 @@ const LoginText = styled.p`
   line-height: 22px;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.img`
+  display: block;
+  margin: 0 auto;
   margin-top: 32px;
   margin-bottom: 24px;
-  font-family: "Fugaz One", cursive !important;
-  text-align: center;
-  font-size: 48px;
+  width: 124px;
 `;
 
 const Form = styled.form`
@@ -160,7 +160,7 @@ const ErrorMsg = styled.p`
 
 const SubmitButton = styled.button`
   display: block;
-  padding: 6px 12px;
+  padding: 8px 12px;
   margin-top: 16px;
   margin-bottom: 24px;
   font-size: 14px;
