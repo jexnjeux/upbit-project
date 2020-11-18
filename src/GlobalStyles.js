@@ -2,10 +2,9 @@ import { createGlobalStyle, css } from "styled-components";
 import reset from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
   ${reset};
   
-  @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
-
   * {
   box-sizing: border-box;
   
@@ -30,8 +29,9 @@ export const GlobalStyles = createGlobalStyle`
   body {
     width: 100%;
     height: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
     color: #111111;
+    font-family:"Fugaz One", cursive;
   }
   body {
     line-height: 1;
@@ -43,6 +43,11 @@ export const GlobalStyles = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  h1{
+    
+    font-weight:bold;
+    font-size: 40px;
   }
 `;
 
