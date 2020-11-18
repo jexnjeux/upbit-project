@@ -20,7 +20,7 @@ function Nav() {
     <Fragment>
       <WrapNav>
         <Link to="/">
-          <LogoImg src="Images/Wecoin_white.png" />
+          <LogoImg src="Images/wecoin_white.svg" />
         </Link>
         <WrapCategories>
           {CATEGORIES.map((el, index) => {

@@ -96,6 +96,7 @@ const SignInWrap = styled.div`
 
 const LoginContainer = styled.div`
   margin: 0 auto;
+  margin-top: 64px;
   width: 532px;
   background-color: #fff;
 `;

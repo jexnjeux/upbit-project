@@ -5,7 +5,7 @@ function Footer() {
   return (
     <FooterWrap>
       <FooterContainer>
-        <FooterLogo>WEcoin</FooterLogo>
+        <FooterLogo src="Images/wecoin_blue.svg" />
         <FooterInfo>
           <li>대표번호</li>
           <li>010.7764.9954</li>
@@ -32,12 +32,12 @@ const FooterContainer = styled.div`
   width: 1440px;
 `;
 
-const FooterLogo = styled.div`
+const FooterLogo = styled.img`
   margin-top: 32px;
   margin-bottom: 24px;
-  font-family: "Fugaz One", cursive !important;
   text-align: center;
   font-size: 48px;
+  width: 120px;
 `;
 
 const FooterInfo = styled.ul`
