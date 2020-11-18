@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
   
   * {
   box-sizing: border-box;
+  
+
   }
   a {
   text-decoration: none;
@@ -29,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-family: 'Noto Sans KR', sans-serif;
     color: #111111;
+    /* font-family:"Fugaz One", cursive; */
   }
   body {
     line-height: 1;
