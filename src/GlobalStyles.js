@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from "styled-components";
 import reset from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
-  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
+  @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
   ${reset};
   
   * {
@@ -44,10 +44,8 @@ export const GlobalStyles = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  h1{
-    
-    font-weight:bold;
-    font-size: 40px;
+  h1 {
+    font-family: 'Fugaz One', cursive;
   }
 `;
 
