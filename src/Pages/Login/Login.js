@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 
 function Login() {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
   };
@@ -12,66 +12,48 @@ function Login() {
       <LoginContainer>
         <LoginContent>
           <LoginBox>
-            <h1>WEcoin</h1>
+            <Logo>WEcoin</Logo>
             <p>방문하신 사이트의 주소가 아래와 일치하는지 확인해주세요.</p>
-            {/* <Form onSubmit={handleSubmit(onSubmit)}>
-              <SellerInput isError={errors.password}>
-                <label htmlFor="cuurentPwd">현재 비밀번호</label>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <FormInput isError={errors.userId}>
+                <label htmlFor="cuurentPwd">아이디</label>
                 <input
-                  type="password"
-                  placeholder="현재 비밀번호"
-                  name="password"
+                  type="text"
+                  placeholder="아이디를 입력하세요"
+                  name="userId"
                   autoComplete="off"
                   ref={register({ required: true })}
                 />
-                {errors.password && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
-              </SellerInput>
+                {errors.userId && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
+              </FormInput>
 
-              <SellerInput isError={errors.new_password}>
-                <label htmlFor="password">변경할 비밀번호</label>
+              <FormInput isError={errors.password}>
+                <label htmlFor="password">비밀번호</label>
                 <input
                   id="password"
-                  name="new_password"
+                  name="password"
                   ref={register({
                     required: true,
                     pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
                   })}
                   type="password"
-                  placeholder="변경할 비밀번호"
+                  placeholder="비밀번호 입력해주세요."
                   autoComplete="off"
                 />
-                {errors.new_password &&
-                  errors.new_password.type === "required" && (
-                    <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>
-                  )}
-                {errors.new_password &&
-                  errors.new_password.type === "pattern" && (
-                    <ErrorMsg>
-                      비밀번호는 8~20글자의 영문대소문자, 숫자, 특수문자를
-                      조합해야 합니다.
-                    </ErrorMsg>
-                  )}
-              </SellerInput>
-              {/* 유효성 검사 에러 메세지 */}
-            {/* <SellerInput isError={errors.rePasswrod}>
-                <label htmlFor="rePassword">비밀번호 재입력</label>
-                <input
-                  type="password"
-                  placeholder="한번 더 입력해주세요."
-                  name="rePassword"
-                  ref={register({
-                    required: true,
-                    validate: (value) =>
-                      value === watch("new_password") ||
-                      "비밀번호가 일치하지 않습니다",
-                  })}
-                  autoComplete="off"
-                />
-                {errors.rePassword && (
-                  <ErrorMsg>{errors.rePassword.message}</ErrorMsg>
+                {errors.password && errors.password.type === "required" && (
+                  <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>
                 )}
-              </SellerInput>
-            </Form> */}
+                {errors.password && errors.password.type === "pattern" && (
+                  <ErrorMsg>
+                    비밀번호는 8~20글자의 영문대소문자, 숫자, 특수문자를
+                    조합해야 합니다.
+                  </ErrorMsg>
+                )}
+              </FormInput>
+              <SubmitButton type="submit" className="btn btn-success">
+                SignIn
+              </SubmitButton>
+            </Form>
           </LoginBox>
         </LoginContent>
       </LoginContainer>
@@ -93,10 +75,62 @@ const LoginContainer = styled.div`
 
 const LoginContent = styled.div``;
 
-const LoginBox = styled.div`
-  h1 {
-    font-weight: bold;
+const LoginBox = styled.div``;
 
-    font-weight: bold;
+const Logo = styled.h1`
+  font-family: "Fugaz One", cursive !important;
+`;
+
+const Form = styled.form`
+  width: 100%;
+`;
+
+const FormInput = styled.div`
+  position: relative;
+  ${({ theme }) => theme.flex(null, null, "column")};
+  margin-left: 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  label {
+    margin-bottom: 8px;
+    text-align: left;
   }
+  /* isError - 에러 메세지가 있을 경우  */
+  input {
+    display: block;
+    padding: 9px 12px;
+    border: 1px solid ${({ isError }) => (isError ? "#a94442" : "#ddd")};
+    border-radius: 4px;
+    outline: 0;
+    &:placeholder {
+      color: #ddd;
+    }
+    &:focus {
+      border: 1px solid ${({ isError }) => (isError ? "#a94442" : "#999999")};
+      border-radius: 4px;
+    }
+  }
+`;
+
+const ErrorMsg = styled.p`
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #a94442;
+`;
+
+const SubmitButton = styled.button`
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  border-radius: 4px;
 `;
