@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 function PriceTab() {
-  return <Fragment> </Fragment>;
+  return <Fragment> 가격탭 </Fragment>;
 }
 
 export default PriceTab;
 
 const Fragment = styled.div`
-  margin-top: 10px;
-  height: 310px;
-  border: 1px solid black;
+  margin-top: 12px;
+  height: 308px;
+  background-color: white;
+  box-shadow: 2px 2px 4px #dee1e7;
 `;

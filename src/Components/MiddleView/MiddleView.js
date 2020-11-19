@@ -15,8 +15,7 @@ function MiddleView() {
 export default MiddleView;
 
 const Fragment = styled.div`
-  margin-top: 10px;
-  width: auto;
+  display: flex;
+  margin-top: 12px;
   height: 795px;
-  border: 1px solid orange;
 `;

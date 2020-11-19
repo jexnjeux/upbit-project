@@ -15,6 +15,6 @@ function MiddleSideView() {
 export default MiddleSideView;
 
 const Fragment = styled.div`
-  float: right;
   width: 50%;
+  margin-left: 6px;
 `;

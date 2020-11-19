@@ -17,7 +17,6 @@ function MainView() {
 export default MainView;
 
 const Fragment = styled.div`
-  float: left;
   width: 990px;
-  border: 2px solid pink;
+  height: auto;
 `;

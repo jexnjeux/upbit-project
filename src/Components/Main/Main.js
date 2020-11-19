@@ -9,5 +9,6 @@ export default Main;
 
 const Fragment = styled.div`
   height: 600px;
-  border: 2px solid red;
+  background-color: white;
+  box-shadow: 2px 2px 4px #dee1e7;
 `;

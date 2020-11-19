@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 function Price() {
-  return <Fragment> </Fragment>;
+  return <Fragment>일반호가</Fragment>;
 }
 
 export default Price;
 
 const Fragment = styled.div`
-  float: left;
   width: 50%;
-  height: 795px;
-  padding-right: 5px;
-  border: 2px solid goldenrod;
+  height: 100%;
+  margin-right: 6px;
+  background-color: white;
+  box-shadow: 2px 2px 4px #dee1e7;
 `;

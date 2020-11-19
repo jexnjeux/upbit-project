@@ -15,9 +15,10 @@ function Exchange() {
 export default Exchange;
 
 const Fragment = styled.div`
-  position: relative;
-  width: 1400px;
-  margin: 0 auto;
-  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 1414px;
+  margin: 0px auto 60px auto;
+  padding-top: 80px;
   background-color: #efefef;
 `;

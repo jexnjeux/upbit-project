@@ -2,17 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 function SideCoinsBar() {
-  return <Fragment> </Fragment>;
+  return <Fragment>사이드코인바 </Fragment>;
 }
 
 export default SideCoinsBar;
 
 const Fragment = styled.div`
-  float: right;
   width: 400px;
-  position: sticky;
-  /* margin-left: 20px;
-  width: 400px; */
-  height: 620px;
-  border: 2px solid pink;
+  height: 800px;
+  background-color: white;
+  box-shadow: 2px 2px 4px #dee1e7;
+  /* position: sticky; */
 `;
