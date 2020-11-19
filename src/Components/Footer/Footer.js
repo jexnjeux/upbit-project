@@ -33,6 +33,7 @@ function Footer() {
 export default Footer;
 
 const FooterWrap = styled.div`
+  padding: 24px 0;
   background-color: #fff;
 `;
 
