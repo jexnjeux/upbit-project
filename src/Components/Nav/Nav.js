@@ -4,16 +4,26 @@ import styled from "styled-components";
 
 function Nav() {
   const [categoryCurrent, setCategoryCurrent] = useState(0);
-  const [current, setCurrent] = useState(-1);
+  const [accountCategoryCurrent, setAccountCategoryCurrent] = useState(-1);
+  //redux 쓰기 전 nav text 제어를 위한 임시 상태
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleCategoryCurrentChange = (index) => {
     setCategoryCurrent(index);
-    setCurrent(-1);
+    setAccountCategoryCurrent(-1);
   };
 
-  const handleAccountCurrentChange = (index) => {
-    setCategoryCurrent(-1);
-    setCurrent(index);
+  const handleAccountCurrentChange = (el, index) => {
+    if (el.accountCategory === "로그아웃") {
+      //redux 쓰기 전 nav text 제어를 위한 임시 상태
+      setIsLoggedIn(false);
+      setCategoryCurrent(0);
+      setAccountCategoryCurrent(-1);
+    } else {
+      console.log("마이페이지 눌림");
+      setCategoryCurrent(-1);
+      setAccountCategoryCurrent(index);
+    }
   };
 
   return (
@@ -37,13 +47,13 @@ function Nav() {
           })}
         </WrapCategories>
         <WrapAccountContainer>
-          {ACCOUNTS.map((el, index) => {
+          {(isLoggedIn ? LOGGEDIN : LOGIN).map((el, index) => {
             return (
               <Account
                 key={index}
                 index={index}
-                clickIndex={current}
-                onClick={() => handleAccountCurrentChange(index)}
+                clickIndex={accountCategoryCurrent}
+                onClick={() => handleAccountCurrentChange(el, index)}
               >
                 <Link to={el.url}>{el.accountCategory}</Link>
               </Account>
@@ -162,7 +172,7 @@ const CATEGORIES = [
   },
 ];
 
-const ACCOUNTS = [
+const LOGIN = [
   {
     id: 1,
     accountCategory: "로그인",
@@ -172,5 +182,18 @@ const ACCOUNTS = [
     id: 2,
     accountCategory: "회원가입",
     url: "/SignUp",
+  },
+];
+
+const LOGGEDIN = [
+  {
+    id: 1,
+    accountCategory: "로그아웃",
+    url: "/",
+  },
+  {
+    id: 2,
+    accountCategory: "마이페이지",
+    url: "/",
   },
 ];
