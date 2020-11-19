@@ -20,7 +20,6 @@ function Nav() {
       setCategoryCurrent(0);
       setAccountCategoryCurrent(-1);
     } else {
-      console.log("마이페이지 눌림");
       setCategoryCurrent(-1);
       setAccountCategoryCurrent(index);
     }
@@ -93,11 +92,16 @@ const LogoImg = styled.img`
 
 const WrapCategories = styled.div`
   margin-left: 40px;
+  height: 60px;
+  overflow: hidden;
 `;
 
 const Category = styled.li`
-  display: inline;
+  display: inline-block;
+  width: auto;
+  height: 60px;
   margin-left: 40px;
+  padding: 25px 0px;
   color: ${({ index, clickIndex }) =>
     index === clickIndex ? "#FFFFFF" : "rgba(165, 175, 202, 0.9)"};
   font-weight: ${({ index, clickIndex }) =>
@@ -114,6 +118,10 @@ const WrapAccountContainer = styled.div`
   align-items: center;
   position: absolute;
   right: 60px;
+
+  @media (max-width: 1050px) {
+    display: none;
+  }
 `;
 
 const Account = styled.div`
