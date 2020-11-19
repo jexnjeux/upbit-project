@@ -21,4 +21,7 @@ const Fragment = styled.div`
   margin: 0px auto 60px auto;
   padding-top: 80px;
   background-color: #efefef;
+  @media (max-width: 1400px) {
+    width: 100%;
+  }
 `;
