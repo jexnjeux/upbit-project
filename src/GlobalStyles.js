@@ -31,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-family: 'Noto Sans KR', sans-serif;
     color: #111111;
+    background-color: #efefef;
     /* font-family:"Fugaz One", cursive; */
   }
   body {

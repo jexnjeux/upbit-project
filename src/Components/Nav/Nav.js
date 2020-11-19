@@ -61,7 +61,8 @@ function Nav() {
 export default Nav;
 
 const Fragment = styled.div`
-  display: fixed;
+  position: fixed;
+  width: 100%;
   z-index: 99999;
 `;
 
