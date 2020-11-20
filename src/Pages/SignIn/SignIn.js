@@ -13,14 +13,14 @@ function SignIn() {
     if (data) {
       try {
         axios
-          .post(`${api}/users/signin/`, data, {
+          .post(`${api}/accounts/signin/`, data, {
             headers: {
               "Content-Type": "application/json",
             },
           })
           .then((res) => {
-            if (res.status === 201) {
-              localStorage.setItem("token", res.data.Authorization);
+            if (res.status === 200) {
+              localStorage.setItem("Authorization", res.data.Authorization);
               history.push("/");
             }
           });

@@ -2,25 +2,41 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Nav() {
+function Nav({ isLoggedIn, setIsLoggedIn }) {
   const [categoryCurrent, setCategoryCurrent] = useState(0);
-  const [current, setCurrent] = useState(-1);
+  const [accountCategoryCurrent, setAccountCategoryCurrent] = useState(-1);
+  //redux 쓰기 전 nav text 제어를 위한 임시 상태
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  console.log("isLoggedIn2", isLoggedIn);
+
+  const handleClickLogoImg = () => {
+    setCategoryCurrent(0);
+    setAccountCategoryCurrent(-1);
+  };
 
   const handleCategoryCurrentChange = (index) => {
     setCategoryCurrent(index);
-    setCurrent(-1);
+    setAccountCategoryCurrent(-1);
   };
 
-  const handleAccountCurrentChange = (index) => {
-    setCategoryCurrent(-1);
-    setCurrent(index);
+  const handleAccountCurrentChange = (el, index) => {
+    if (el.accountCategory === "로그아웃") {
+      //redux 쓰기 전 nav text 제어를 위한 임시 상태
+      setIsLoggedIn(false);
+      setCategoryCurrent(0);
+      setAccountCategoryCurrent(-1);
+    } else {
+      setCategoryCurrent(-1);
+      setAccountCategoryCurrent(index);
+    }
   };
 
   return (
     <Fragment>
       <WrapNav>
         <Link to="/">
-          <LogoImg src="Images/wecoin_white.svg" />
+          <LogoImg src="Images/wecoin_white.svg" onClick={handleClickLogoImg} />
         </Link>
         <WrapCategories>
           {CATEGORIES.map((el, index) => {
@@ -37,13 +53,14 @@ function Nav() {
           })}
         </WrapCategories>
         <WrapAccountContainer>
-          {ACCOUNTS.map((el, index) => {
+          {(isLoggedIn ? LOGGEDIN : LOGIN).map((el, index) => {
+            console.log("isLoggedIn >>", isLoggedIn);
             return (
               <Account
                 key={index}
                 index={index}
-                clickIndex={current}
-                onClick={() => handleAccountCurrentChange(index)}
+                clickIndex={accountCategoryCurrent}
+                onClick={() => handleAccountCurrentChange(el, index)}
               >
                 <Link to={el.url}>{el.accountCategory}</Link>
               </Account>
@@ -83,11 +100,16 @@ const LogoImg = styled.img`
 
 const WrapCategories = styled.div`
   margin-left: 40px;
+  height: 60px;
+  overflow: hidden;
 `;
 
 const Category = styled.li`
-  display: inline;
+  display: inline-block;
+  width: auto;
+  height: 60px;
   margin-left: 40px;
+  padding: 25px 0px;
   color: ${({ index, clickIndex }) =>
     index === clickIndex ? "#FFFFFF" : "rgba(165, 175, 202, 0.9)"};
   font-weight: ${({ index, clickIndex }) =>
@@ -104,6 +126,10 @@ const WrapAccountContainer = styled.div`
   align-items: center;
   position: absolute;
   right: 60px;
+
+  @media (max-width: 1050px) {
+    display: none;
+  }
 `;
 
 const Account = styled.div`
@@ -162,7 +188,7 @@ const CATEGORIES = [
   },
 ];
 
-const ACCOUNTS = [
+const LOGIN = [
   {
     id: 1,
     accountCategory: "로그인",
@@ -172,5 +198,18 @@ const ACCOUNTS = [
     id: 2,
     accountCategory: "회원가입",
     url: "/SignUp",
+  },
+];
+
+const LOGGEDIN = [
+  {
+    id: 1,
+    accountCategory: "로그아웃",
+    url: "/",
+  },
+  {
+    id: 2,
+    accountCategory: "마이페이지",
+    url: "/",
   },
 ];

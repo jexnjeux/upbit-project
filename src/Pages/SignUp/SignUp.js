@@ -13,7 +13,7 @@ function SignUp() {
     if (data) {
       try {
         axios
-          .post(`${api}/users/signup/`, data, {
+          .post(`${api}/accounts/signup/`, data, {
             headers: {
               "Content-Type": "application/json",
             },
@@ -39,7 +39,7 @@ function SignUp() {
           </SignUpText>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormInput isError={errors.name}>
-              <label htmlFor="user_name">닉네임</label>
+              <label htmlFor="name">닉네임</label>
               <input
                 type="text"
                 placeholder="닉네임을 입력하세요"
@@ -51,7 +51,7 @@ function SignUp() {
             </FormInput>
 
             <FormInput isError={errors.email}>
-              <label htmlFor="user_email">아이디</label>
+              <label htmlFor="email">이메일</label>
               <input
                 type="text"
                 placeholder="이메일을 입력하세요"
