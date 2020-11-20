@@ -13,13 +13,13 @@ function SignUp() {
     if (data) {
       try {
         axios
-          .post(`${api}/accounts/signup`, data, {
+          .post(`${api}/users/signup/`, data, {
             headers: {
               "Content-Type": "application/json",
             },
           })
           .then((res) => {
-            if (res.status === 200) {
+            if (res.status === 201) {
               history.push("/signin");
             }
           });
@@ -38,28 +38,28 @@ function SignUp() {
             방문하신 사이트의 주소가 일치하는지 확인해주세요.
           </SignUpText>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormInput isError={errors.user_name}>
+            <FormInput isError={errors.name}>
               <label htmlFor="user_name">닉네임</label>
               <input
                 type="text"
                 placeholder="닉네임을 입력하세요"
-                name="user_name"
+                name="name"
                 autoComplete="off"
                 ref={register({ required: true })}
               />
-              {errors.user_name && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
+              {errors.name && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
             </FormInput>
 
-            <FormInput isError={errors.user_email}>
+            <FormInput isError={errors.email}>
               <label htmlFor="user_email">아이디</label>
               <input
                 type="text"
                 placeholder="이메일을 입력하세요"
-                name="user_email"
+                name="email"
                 autoComplete="off"
                 ref={register({ required: true })}
               />
-              {errors.user_email && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
+              {errors.email && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
             </FormInput>
 
             <FormInput isError={errors.password}>
