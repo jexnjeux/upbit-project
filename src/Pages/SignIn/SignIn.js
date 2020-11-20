@@ -13,14 +13,14 @@ function SignIn() {
     if (data) {
       try {
         axios
-          .post(`${api}/accounts/signin`, data, {
+          .post(`${api}/accounts/signin/`, data, {
             headers: {
               "Content-Type": "application/json",
             },
           })
           .then((res) => {
             if (res.status === 200) {
-              localStorage.setItem("token", res.data.Authorization);
+              localStorage.setItem("Authorization", res.data.Authorization);
               history.push("/");
             }
           });
@@ -39,16 +39,16 @@ function SignIn() {
             방문하신 사이트의 주소가 일치하는지 확인해주세요.
           </LoginText>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormInput isError={errors.user_email}>
-              <label htmlFor="user_email">이메일</label>
+            <FormInput isError={errors.email}>
+              <label htmlFor="email">이메일</label>
               <input
                 type="text"
                 placeholder="이메일 입력하세요"
-                name="user_email"
+                name="email"
                 autoComplete="off"
                 ref={register({ required: true })}
               />
-              {errors.user_email && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
+              {errors.email && <ErrorMsg>필수 입력 항목입니다.</ErrorMsg>}
             </FormInput>
 
             <FormInput isError={errors.password}>
