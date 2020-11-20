@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Nav() {
+function Nav({ isLoggedIn, setIsLoggedIn }) {
   const [categoryCurrent, setCategoryCurrent] = useState(0);
   const [accountCategoryCurrent, setAccountCategoryCurrent] = useState(-1);
   //redux 쓰기 전 nav text 제어를 위한 임시 상태
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  console.log("isLoggedIn2", isLoggedIn);
+
+  const handleClickLogoImg = () => {
+    setCategoryCurrent(0);
+    setAccountCategoryCurrent(-1);
+  };
 
   const handleCategoryCurrentChange = (index) => {
     setCategoryCurrent(index);
@@ -29,7 +36,7 @@ function Nav() {
     <Fragment>
       <WrapNav>
         <Link to="/">
-          <LogoImg src="Images/wecoin_white.svg" />
+          <LogoImg src="Images/wecoin_white.svg" onClick={handleClickLogoImg} />
         </Link>
         <WrapCategories>
           {CATEGORIES.map((el, index) => {
@@ -47,6 +54,7 @@ function Nav() {
         </WrapCategories>
         <WrapAccountContainer>
           {(isLoggedIn ? LOGGEDIN : LOGIN).map((el, index) => {
+            console.log("isLoggedIn >>", isLoggedIn);
             return (
               <Account
                 key={index}
