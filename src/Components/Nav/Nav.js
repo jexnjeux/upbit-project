@@ -1,12 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Nav({ isLoggedIn, setIsLoggedIn }) {
   const [categoryCurrent, setCategoryCurrent] = useState(0);
   const [accountCategoryCurrent, setAccountCategoryCurrent] = useState(-1);
-  //redux 쓰기 전 nav text 제어를 위한 임시 상태
-  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const history = useHistory();
 
   console.log("isLoggedIn2", isLoggedIn);
 
@@ -22,10 +22,11 @@ function Nav({ isLoggedIn, setIsLoggedIn }) {
 
   const handleAccountCurrentChange = (el, index) => {
     if (el.accountCategory === "로그아웃") {
-      //redux 쓰기 전 nav text 제어를 위한 임시 상태
       setIsLoggedIn(false);
       setCategoryCurrent(0);
       setAccountCategoryCurrent(-1);
+      localStorage.removeItem("Authorization");
+      history.push("/");
     } else {
       setCategoryCurrent(-1);
       setAccountCategoryCurrent(index);
@@ -54,7 +55,7 @@ function Nav({ isLoggedIn, setIsLoggedIn }) {
         </WrapCategories>
         <WrapAccountContainer>
           {(isLoggedIn ? LOGGEDIN : LOGIN).map((el, index) => {
-            console.log("isLoggedIn >>", isLoggedIn);
+            console.log("isLoggedIn >>", localStorage.Authorization);
             return (
               <Account
                 key={index}
