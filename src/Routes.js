@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "../src/Components/Nav/Nav";
 import Footer from "../src/Components/Footer/Footer";
@@ -8,20 +8,15 @@ import SingIn from "./Pages/SignIn/SignIn";
 
 function Routes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   console.log(localStorage.Authorization);
 
   useEffect(() => {
     if (localStorage.Authorization) {
-      console.log("있음");
       setIsLoggedIn(true);
     } else {
-      console.log("없음");
       setIsLoggedIn(false);
     }
   }, []);
-
-  console.log("isLoggedIn!!", isLoggedIn);
 
   return (
     <>

@@ -22,6 +22,7 @@ function SignIn() {
             if (res.status === 200) {
               localStorage.setItem("Authorization", res.data.Authorization);
               history.push("/");
+              window.location.reload();
             }
           });
       } catch (err) {
