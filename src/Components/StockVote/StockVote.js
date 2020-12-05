@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import MenuTab from "./Component/MenuTab";
+import MenuContent from "./Component/MenuContent";
 import styled from "styled-components";
 
-function stockVote() {
-  return <Fragment> 체결/일별 </Fragment>;
+function StockVote() {
+  const [current, setCurrent] = useState(1);
+  const [isContractClicked, setIsContractClicked] = useState(false);
+
+  const handleClickCurrent = (index) => {
+    setCurrent(index);
+  };
+
+  useEffect(() => {
+    if (current === 1) {
+      setIsContractClicked(false);
+    } else {
+      setIsContractClicked(true);
+    }
+  }, [current]);
+
+  return (
+    <Fragment>
+      <MenuTab current={current} handleClickCurrent={handleClickCurrent} />
+      <MenuContent isContractClicked={isContractClicked} />
+    </Fragment>
+  );
 }
 
-export default stockVote;
+export default StockVote;
 
 const Fragment = styled.div`
   margin-top: 12px;

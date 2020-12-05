@@ -1,0 +1,130 @@
+{
+  "constractPrice": [
+    {
+      "id":1,
+      "ExecutionDate": 1120,
+      "ExecutionTime": 1520,
+      "ExecutionPrice": 29424523,
+      "ExecutionVolume": 4846,
+      "ExecutionAmount":596139
+    },
+    {
+      "id":2,
+      "ExecutionDate": 1120,
+      "ExecutionTime": 1520,
+      "ExecutionPrice": 20991240,
+      "ExecutionVolume": 7431287,
+      "ExecutionAmount":59219
+    }
+  ],  
+  "dailyPrice": [
+      {
+        "id": 1,
+        "date": 1120,
+        "closingPrice": 20627000,
+        "difference": 825000,
+        "percentDifference": "+4.17",
+        "tradingVolume":6145
+      },
+      {
+        "id": 2,
+        "date": 1121,
+        "closingPrice": 20351000,
+        "difference": 276000,
+        "percentDifference": "-1.34",
+        "tradingVolume":6137
+      }
+      ,
+      {
+        "id": 3,
+        "date": 1122,
+        "closingPrice": 20307000,
+        "difference": 44000,
+        "percentDifference": "-0.22",
+        "tradingVolume":7887
+      }
+      ,
+      {
+        "id": 4,
+        "date": 1123,
+        "closingPrice": 20100000,
+        "difference": 207000,
+        "percentDifference": "-1.02",
+        "tradingVolume":5710
+      },
+      {
+        "id": 5,
+        "date": 1124,
+        "closingPrice": 20957000,
+        "difference": 857000,
+        "percentDifference": "+4.26",
+        "tradingVolume":15374
+      },
+      {
+        "id": 6,
+        "date": 1125,
+        "closingPrice": 20840000,
+        "difference": 117000,
+        "percentDifference": "-0.56",
+        "tradingVolume":8277
+      },
+      {
+        "id": 7,
+        "date": 1126,
+        "closingPrice": 19225000,
+        "difference": 1615000,
+        "percentDifference": "-7.75",
+        "tradingVolume":13803
+      },
+      {
+        "id": 8,
+        "date": 1127,
+        "closingPrice": 19129000,
+        "difference": 96000,
+        "percentDifference": "-0.50",
+        "tradingVolume":7569
+      },
+      {
+        "id": 9,
+        "date": 1128,
+        "closingPrice": 19484000,
+        "difference": 355000,
+        "percentDifference": "+1.86",
+        "tradingVolume":5060
+      },
+      {
+        "id": 10,
+        "date": 1129,
+        "closingPrice": 19991000,
+        "difference": 507000,
+        "percentDifference": "+2.60",
+        "tradingVolume":4169
+      },
+      {
+        "id": 11,
+        "date": 1130,
+        "closingPrice": 21315000,
+        "difference": 1324000,
+        "percentDifference": "+6.62",
+        "tradingVolume":9686
+      },
+      {
+        "id": 12,
+        "date": 1201,
+        "closingPrice": 20867000,
+        "difference": 448000,
+        "percentDifference": "-2.10",
+        "tradingVolume":9672
+      }
+      ,
+      {
+        "id": 13,
+        "date": 1202,
+        "closingPrice": 21097000,
+        "difference": 230000,
+        "percentDifference": "+1.10",
+        "tradingVolume":6265
+      }
+    ]
+  }
+  
