@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import api from "../../config/api";
 
-function SignIn() {
+function SignIn({ isLoggedIn, setIsLoggedIn }) {
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
   const onSubmit = async (data) => {
@@ -22,6 +22,8 @@ function SignIn() {
             if (res.status === 200) {
               localStorage.setItem("Authorization", res.data.Authorization);
               history.push("/");
+              window.location.reload();
+              console.log("res >>>> ", res);
             }
           });
       } catch (err) {
@@ -30,6 +32,7 @@ function SignIn() {
       }
     }
   };
+
   return (
     <SignInWrap>
       <LoginContainer>

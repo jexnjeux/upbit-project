@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Nav({ isLoggedIn, setIsLoggedIn }) {
+function Nav({ accessToken, isLoggedIn, setIsLoggedIn }) {
   const [categoryCurrent, setCategoryCurrent] = useState(0);
   const [accountCategoryCurrent, setAccountCategoryCurrent] = useState(-1);
   //redux 쓰기 전 nav text 제어를 위한 임시 상태
@@ -53,7 +53,7 @@ function Nav({ isLoggedIn, setIsLoggedIn }) {
           })}
         </WrapCategories>
         <WrapAccountContainer>
-          {(isLoggedIn ? LOGGEDIN : LOGIN).map((el, index) => {
+          {(accessToken && accessToken ? LOGGEDIN : LOGIN).map((el, index) => {
             console.log("isLoggedIn >>", isLoggedIn);
             return (
               <Account

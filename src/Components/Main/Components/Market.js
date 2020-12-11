@@ -42,21 +42,15 @@ function Market() {
         </ExchangeList>
       </MarketContent>
       <Foreign>
-        <li>
-          <em>Bitfinex</em>
-          <strong>19,489,624</strong>
-          <span>($17,456.00)</span>
-        </li>
-        <li>
-          <em>Kraken</em>
-          <strong>19,506,930</strong>
-          <span>($17,471.50)</span>
-        </li>
-        <li>
-          <em>Liquid</em>
-          <strong>19,528,160</strong>
-          <span>(¥1,819,976.00)</span>
-        </li>
+        {FOREIGNLIST.map((foreign_item, i) => {
+          return (
+            <li key={i}>
+              <em>{foreign_item.name}</em>
+              <strong>{foreign_item.num.toLocaleString()}</strong>
+              <span>({foreign_item.price})</span>
+            </li>
+          );
+        })}
       </Foreign>
     </MarketContainer>
   );
@@ -170,3 +164,24 @@ const Foreign = styled.ul`
     }
   }
 `;
+
+const FOREIGNLIST = [
+  {
+    id: 1,
+    name: "Bitfinex",
+    num: 19489624,
+    price: "$17,456.00",
+  },
+  {
+    id: 2,
+    name: "Kraken",
+    num: 19506930,
+    price: "$17,471.50",
+  },
+  {
+    id: 3,
+    name: "Liquid",
+    num: 19528160,
+    price: "¥1,819,976.00",
+  },
+];

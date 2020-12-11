@@ -8,8 +8,8 @@ import api from "../../config/api";
 function SignUp() {
   const { register, handleSubmit, errors, watch } = useForm();
   const history = useHistory();
+
   const onSubmit = async (data) => {
-    console.log(data);
     if (data) {
       try {
         axios
@@ -21,6 +21,7 @@ function SignUp() {
           .then((res) => {
             if (res.status === 201) {
               history.push("/signin");
+              console.log(res.data);
             }
           });
       } catch (err) {

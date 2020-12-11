@@ -10,6 +10,7 @@ function Routes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   console.log(localStorage.Authorization);
+  const accessToken = localStorage.getItem("Authorization");
 
   useEffect(() => {
     if (localStorage.Authorization) {
@@ -26,11 +27,21 @@ function Routes() {
   return (
     <>
       <Router>
-        <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Nav
+          accessToken={accessToken}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
         <Switch>
           <Route exact path="/" component={Exchange} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SingIn} />
+          <Route
+            exact
+            path="/signin"
+            component={SingIn}
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+          />
         </Switch>
         <Footer />
       </Router>

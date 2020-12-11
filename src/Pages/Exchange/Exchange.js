@@ -1,6 +1,7 @@
 import React from "react";
 import MainView from "../../Components/MainView/MainView";
 import SideCoinsBar from "../../Components/SideCoinsBar/SideCoinsBar";
+import Chat from "../../Components/Chat/Chat";
 import styled from "styled-components";
 
 function Exchange() {
@@ -8,6 +9,7 @@ function Exchange() {
     <Fragment>
       <MainView />
       <SideCoinsBar />
+      <Chat />
     </Fragment>
   );
 }
